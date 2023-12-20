@@ -45,7 +45,7 @@ bool sumOfColors(List<String> inputList) {
 bool checkGame(int red, int green, int blue) =>
     red <= 12 && green <= 13 && blue <= 14;
 
-main() async {
+void main() async {
   int result = 0;
   int gameID = 0;
   final inputFile = await File('2/input.txt').readAsString();
@@ -53,8 +53,7 @@ main() async {
   inputFile.split('\n').forEach((element) {
     result++;
     final extractedListOfColors = extractColors(element, result);
-    if (sumOfColors(extractedListOfColors))
-      gameID += result; // Fix here, add gameID, not result
+    if (sumOfColors(extractedListOfColors)) gameID += result;
   });
 
   print('$gameID $result');
